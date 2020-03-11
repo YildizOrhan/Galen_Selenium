@@ -1,0 +1,59 @@
+@objects
+   header     id     header
+   headerBanner css .head-custom-banner.homePageTopBanner
+   menuItem-*     css    .main-nav>li
+   userNavItem-*     css .user-navigation>li
+   siteFooter    css    .site-footer
+   logo     id  logo-icon
+
+@script
+    menuList = ["KADIN", "ERKEK", "ÇOCUK","AYAKKABI & ÇANTA","SAAT & AKSESUAR"
+    ,"KOZMETİK","EV & YAŞAM","ELEKTRONİK","SÜPERMARKET"];
+     userNavList = ["Giriş Yap", "Favorilerim", "Sepetim"];
+
+=Header=
+   header:
+         visible
+         inside screen 0px top
+         css display is "block"
+         css font-family contains "source_sans_proregular"
+         css background-color is "rgba(255, 255, 255, 1)"
+
+   headerBanner:
+         visible
+         height 65px
+
+=Footer=
+   siteFooter:
+         visible
+         css background-color is "rgba(0, 0, 0, 1)"
+         css font-size is "13px"
+
+=Logo=
+   logo:
+         #Image comparison with %2 precision ratio
+         image file img/logo.png, error %2
+
+=Menu Items=
+    menuItem-*:
+        visible
+        count any menuItem-* is 9
+    @forEach [menuItem-*] as itemName, index as i
+        ${itemName}:
+            height 40px
+            text is "${menuList[i-1]}"
+    | menu.menuItem-* are aligned horizontally next to each other
+
+@rule %{itemPattern} are aligned horizontally next to each other
+    @forEach [${itemPattern}] as item, next as nextItem
+        ${item}:
+            aligned horizontally all ${nextItem}
+
+=User Navigation Items=
+    userNavItem-*:
+        visible
+        count any userNavItem-* is 3
+    @forEach [userNavItem-*] as itemName, index as i
+        ${itemName}:
+            height 50px
+            text is "${userNavList[i-1]}"

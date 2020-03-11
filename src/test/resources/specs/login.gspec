@@ -1,0 +1,48 @@
+@objects
+   email     id     email
+   forgotPassword css   .forgot-password-link
+   password    id  password
+   passwordLabel css .password-label
+   loginSubmit  id loginSubmit
+   loginHeaderText css .text-center.popup-header-text
+   commonPopup  id      commonPopupRoot
+   loginText    css .text-center
+
+=Login Page=
+   email:
+      visible
+      height 34px
+      aligned vertically left password
+      css font-size is "12px"
+
+   password:
+       visible
+       height 34px
+       below email
+       css font-size is "12px"
+       above loginSubmit 10px
+
+   forgotPassword:
+       visible
+       height 17px
+       below email
+       css font-size is "13px"
+       above loginSubmit 47px
+       near passwordLabel 185px right
+       #right-of passwordLabel 185px
+       css text-decoration is "none solid rgb(68, 68, 68)"
+
+
+   loginSubmit:
+       below password
+       css font-size is "15px"
+       css background-color is "rgba(242, 122, 26, 1)"
+       css border-color is "rgb(242, 122, 26)"
+       css text-align is "center"
+
+   loginHeaderText:
+      text is "En iyi markaları en uygun fiyata yakalayın!"
+
+   commonPopup:
+      visible
+      inside viewport
